@@ -64,7 +64,7 @@ export function Growth() {
             />
             <Spiral
               src="/shapes/spiral-lime-upright.png"
-              className="absolute top-[20px] right-0 w-[150px] sm:top-[66px] sm:right-auto sm:left-[421px] sm:w-[217px]"
+              className="absolute top-[20px] right-0 z-10 w-[150px] sm:top-[66px] sm:right-auto sm:left-[415px] sm:w-[217px]"
             />
             <ProgressCard className="absolute top-[180px] right-0 sm:top-[214px] sm:right-auto sm:left-[344px]" />
           </div>
@@ -81,7 +81,7 @@ export function Growth() {
                 <div className="h-full w-[65%] rounded-full bg-lime-500" />
               </div>
             </div>
-            <div className="absolute top-[150px] left-0 z-0 w-[150px] max-sm:z-20 rounded-xl bg-brand-800 p-4 text-white shadow-lg sm:left-[9px]">
+            <div className="absolute top-[150px] left-0 z-20 w-[150px] rounded-xl bg-brand-800 p-4 text-white shadow-lg sm:left-[9px]">
               <p className="text-sm">Year to Date</p>
               <p className="text-[10px] text-white/80">2023</p>
               <p className="mt-2 text-xl font-semibold">$1,200.38</p>
@@ -101,7 +101,7 @@ export function Growth() {
 
             <Spiral
               src="/shapes/spiral-lime-tilted.png"
-              className="absolute top-[29px] left-[312px] z-20 w-[217px] max-sm:right-0 max-sm:left-auto max-sm:w-[160px]"
+              className="absolute top-[68px] left-[305px] z-20 w-[217px] max-sm:right-0 max-sm:left-auto max-sm:w-[160px]"
             />
             <HappyStudentsCard className="absolute top-[369px] left-[293px] z-20 max-sm:right-0 max-sm:left-auto" />
           </div>
