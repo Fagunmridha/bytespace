@@ -30,34 +30,34 @@ export function AuthShell({ title, description, children }: AuthShellProps) {
             <h1 className="text-xl font-semibold">{title}</h1>
             <p className="mt-3 max-w-[480px] text-base leading-7 font-light text-white/90">{description}</p>
 
-            {/* collage — placeholder 3D shapes until the Figma exports are added */}
+            {/* decorative collage */}
             <div inert className="relative mt-[70px] hidden h-[560px] w-[485px] lg:block">
               <CourseCard course={digitalAsset} className="absolute top-[89px] left-0 w-[372px]" />
               <CourseCard course={bigData} className="absolute top-0 left-[112px] w-[372px] shadow-xl" />
+              {/* only a white torus was exported — tint it lime; multiply keeps its shading */}
+              <div className="absolute top-[10px] left-[24px] isolate w-[164px]">
+                <Image src="/shapes/torus-white.png" alt="" width={346} height={343} sizes="164px" />
+                <span
+                  className="absolute inset-0 bg-lime-500 mix-blend-multiply"
+                  style={{ maskImage: "url(/shapes/torus-white.png)", maskSize: "100% 100%" }}
+                />
+              </div>
               <Image
-                src="/hero/torus-lime.svg"
+                src="/shapes/squiggle-white.png"
                 alt=""
-                width={240}
-                height={220}
-                unoptimized
-                className="absolute top-[39px] left-[49px] w-[113px] rotate-12"
-              />
-              <Image
-                src="/hero/squiggle-white.svg"
-                alt=""
-                width={120}
-                height={130}
-                unoptimized
-                className="absolute top-[347px] left-[377px] w-[118px]"
+                width={177}
+                height={176}
+                sizes="177px"
+                className="absolute top-[318px] left-[345px] max-w-none"
               />
               <HappyStudentsCard tone="lime" className="absolute top-[433px] left-[225px]" />
               <Image
-                src="/hero/cone-lime.svg"
+                src="/shapes/pyramid-lime.png"
                 alt=""
-                width={130}
-                height={140}
-                unoptimized
-                className="absolute top-[416px] left-0 w-[126px] -scale-x-100"
+                width={190}
+                height={189}
+                sizes="190px"
+                className="absolute top-[395px] left-[-27px] max-w-none"
               />
             </div>
           </div>

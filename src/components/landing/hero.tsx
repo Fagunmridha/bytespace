@@ -3,17 +3,18 @@ import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { HappyStudentsCard, ProgressCard } from "./floating-cards"
+import { FloatingShapes, type Shape } from "./floating-shapes"
 import { GridBackdrop } from "./grid-backdrop"
 import { Navbar } from "./navbar"
 
-// Placeholder art — replace with the exported Figma assets (same paths).
-const shapes = [
-  { src: "/hero/spiral-lime.svg", w: 200, h: 260, className: "-left-2.5 top-[200px]" },
-  { src: "/hero/squiggle-white.svg", w: 120, h: 130, className: "left-[215px] top-[390px]" },
-  { src: "/hero/cylinder-lime.svg", w: 180, h: 300, className: "-right-2.5 top-[170px]" },
-  { src: "/hero/cone-white.svg", w: 130, h: 140, className: "right-[180px] top-[370px]" },
-  { src: "/hero/torus-white.svg", w: 240, h: 220, className: "left-[70px] top-[600px]" },
-  { src: "/hero/spring-white.svg", w: 190, h: 250, className: "right-10 top-[580px]" },
+// Content positions follow the 1440px Figma frame; offsets subtract each PNG's transparent padding.
+const shapes: Shape[] = [
+  { src: "/shapes/spiral-lime-left.png", width: 267, height: 387, className: "top-[136px] left-0", edge: true },
+  { src: "/shapes/squiggle-white.png", width: 177, height: 176, className: "top-[361px] left-[185px]" },
+  { src: "/shapes/cylinder-lime.png", width: 213, height: 372, className: "top-[135px] right-0", edge: true },
+  { src: "/shapes/pyramid-white.png", width: 190, height: 189, className: "top-[348px] right-[146px]" },
+  { src: "/shapes/torus-white.png", width: 346, height: 343, className: "top-[540px] left-[19px]" },
+  { src: "/shapes/spring-white.png", width: 317, height: 332, className: "top-[542px] right-0" },
 ]
 
 export function Hero() {
@@ -21,20 +22,7 @@ export function Hero() {
     <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-brand-800 text-white">
       <GridBackdrop />
 
-      {/* floating 3D shapes */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 mx-auto hidden max-w-[1440px] lg:block">
-        {shapes.map((s) => (
-          <Image
-            key={s.src}
-            src={s.src}
-            alt=""
-            width={s.w}
-            height={s.h}
-            unoptimized
-            className={`absolute ${s.className}`}
-          />
-        ))}
-      </div>
+      <FloatingShapes shapes={shapes} />
 
       <Navbar />
 

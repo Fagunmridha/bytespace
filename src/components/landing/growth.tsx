@@ -15,18 +15,8 @@ const perks = ["Share Your Expertise", "Monetize Your Passion", "Flexibility and
 const headingClass =
   "text-3xl leading-tight font-semibold tracking-tight text-ink-950 md:text-[44px] md:leading-[1.25]"
 
-function Spiral({ className }: { className?: string }) {
-  return (
-    <Image
-      src="/hero/spiral-lime.svg"
-      alt=""
-      aria-hidden
-      width={200}
-      height={260}
-      unoptimized
-      className={className}
-    />
-  )
+function Spiral({ src, className }: { src: string; className?: string }) {
+  return <Image src={src} alt="" aria-hidden width={217} height={216} sizes="217px" className={className} />
 }
 
 export function Growth() {
@@ -72,7 +62,10 @@ export function Growth() {
               sizes="707px"
               className="absolute bottom-0 left-1/2 w-[560px] max-w-none -translate-x-[44%] sm:top-[49px] sm:bottom-auto sm:left-[-22px] sm:w-[707px] sm:translate-x-0"
             />
-            <Spiral className="absolute top-[40px] right-2 w-[90px] sm:top-[60px] sm:right-auto sm:left-[468px] sm:w-[110px]" />
+            <Spiral
+              src="/shapes/spiral-lime-upright.png"
+              className="absolute top-[20px] right-0 w-[150px] sm:top-[66px] sm:right-auto sm:left-[421px] sm:w-[217px]"
+            />
             <ProgressCard className="absolute top-[180px] right-0 sm:top-[214px] sm:right-auto sm:left-[344px]" />
           </div>
         </div>
@@ -106,7 +99,10 @@ export function Growth() {
               className="absolute top-[-10px] left-[29px] z-10 w-[453px] max-w-none max-sm:left-1/2 max-sm:w-[340px] max-sm:-translate-x-1/2"
             />
 
-            <Spiral className="absolute top-[65px] left-[348px] z-20 w-[140px] -rotate-12 max-sm:right-0 max-sm:left-auto max-sm:w-[100px]" />
+            <Spiral
+              src="/shapes/spiral-lime-tilted.png"
+              className="absolute top-[29px] left-[312px] z-20 w-[217px] max-sm:right-0 max-sm:left-auto max-sm:w-[160px]"
+            />
             <HappyStudentsCard className="absolute top-[369px] left-[293px] z-20 max-sm:right-0 max-sm:left-auto" />
           </div>
 

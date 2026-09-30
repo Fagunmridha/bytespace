@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, ShoppingBag, X } from "lucide-react"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "./logo"
 
@@ -51,7 +52,7 @@ export function Navbar() {
             Join Us
           </Link>
           <Link href="/cart" aria-label="Cart" className="text-white">
-            <ShoppingBag className="size-5" />
+            <Image src="/icons/bag.png" alt="" width={24} height={24} />
           </Link>
           <button
             type="button"

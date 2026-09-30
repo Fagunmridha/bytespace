@@ -1,18 +1,18 @@
-import Image from "next/image"
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { FloatingShapes, type Shape } from "./floating-shapes"
 import { GridBackdrop } from "./grid-backdrop"
 
-// Placeholder art — replace with the exported Figma 3D shapes (same paths).
-const shapes = [
-  { src: "/hero/spiral-lime.svg", w: 200, h: 260, className: "-top-8 -left-6 w-[170px] rotate-[70deg]" },
-  { src: "/hero/squiggle-white.svg", w: 120, h: 130, className: "top-[33px] left-[209px] w-[112px]" },
-  { src: "/hero/cone-white.svg", w: 130, h: 140, className: "top-[242px] -left-3 w-[115px] -scale-x-100" },
-  { src: "/hero/torus-lime.svg", w: 240, h: 220, className: "top-[338px] left-[73px] w-[225px]" },
-  { src: "/hero/cone-lime.svg", w: 130, h: 140, className: "top-[26px] right-[187px] w-[150px]" },
-  { src: "/hero/cylinder-white.svg", w: 180, h: 300, className: "top-[53px] -right-2 w-[175px] rotate-12" },
-  { src: "/hero/spring-lime.svg", w: 190, h: 250, className: "top-[331px] right-[74px] w-[190px]" },
+// Content positions follow the 1440px Figma frame; offsets subtract each PNG's transparent padding.
+const shapes: Shape[] = [
+  { src: "/shapes/spiral-lime-corner.png", width: 267, height: 225, className: "top-0 left-0", edge: true },
+  { src: "/shapes/squiggle-white-cta.png", width: 177, height: 176, className: "top-[4px] left-[177px]" },
+  { src: "/shapes/cone-white.png", width: 140, height: 189, className: "top-[225px] left-0", edge: true },
+  { src: "/shapes/torus-lime-half.png", width: 346, height: 190, className: "bottom-0 left-[20px]" },
+  { src: "/shapes/pyramid-lime.png", width: 190, height: 189, className: "top-[5px] right-[174px]" },
+  { src: "/shapes/cylinder-white.png", width: 218, height: 372, className: "top-[18px] right-0", edge: true },
+  { src: "/shapes/spring-lime.png", width: 334, height: 199, className: "right-0 bottom-0" },
 ]
 
 export function CreatorCta() {
@@ -20,19 +20,7 @@ export function CreatorCta() {
     <section className="relative isolate overflow-hidden bg-brand-800 py-20 text-white md:py-24">
       <GridBackdrop />
 
-      <div aria-hidden className="pointer-events-none absolute inset-0 mx-auto hidden max-w-[1440px] lg:block">
-        {shapes.map((s) => (
-          <Image
-            key={s.src}
-            src={s.src}
-            alt=""
-            width={s.w}
-            height={s.h}
-            unoptimized
-            className={`absolute h-auto ${s.className}`}
-          />
-        ))}
-      </div>
+      <FloatingShapes shapes={shapes} />
 
       <div className="relative mx-auto max-w-[960px] px-4 text-center md:px-6">
         <h2 className="mx-auto max-w-[620px] text-3xl leading-tight font-semibold tracking-tight md:text-[44px] md:leading-[1.2]">
