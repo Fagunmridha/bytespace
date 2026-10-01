@@ -62,7 +62,7 @@ export function CourseSidebar({ course }: { course: CourseDetails }) {
         </div>
         <p className="mt-6 max-w-[290px] text-[15px] leading-[26px] text-ink-700">{pitch}</p>
         <Link
-          href="/creators"
+          href="/creators/purepearl-studio"
           className="mt-4 inline-flex h-[34px] items-center rounded-full border border-ink-300 px-5 text-[15px] transition-colors hover:bg-ink-50"
         >
           See Full Profile

@@ -18,23 +18,29 @@ export function slugify(label: string) {
 
 type FilterBarProps = { categories: string[]; active: string; query?: string }
 
+export function FilterToolbar() {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center gap-3 md:gap-[18px]">
+        {filters.map((f) => (
+          <button key={f.label} type="button" className={pill}>
+            <Image src={f.icon} alt="" width={24} height={24} className="size-5" />
+            {f.label}
+          </button>
+        ))}
+      </div>
+      <button type="button" className={cn(pill, "hidden sm:flex")}>
+        <ListFilter aria-hidden className="size-5" />
+        Most relevant
+      </button>
+    </div>
+  )
+}
+
 export function FilterBar({ categories, active, query }: FilterBarProps) {
   return (
     <div>
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 md:gap-[18px]">
-          {filters.map((f) => (
-            <button key={f.label} type="button" className={pill}>
-              <Image src={f.icon} alt="" width={24} height={24} className="size-5" />
-              {f.label}
-            </button>
-          ))}
-        </div>
-        <button type="button" className={cn(pill, "hidden sm:flex")}>
-          <ListFilter aria-hidden className="size-5" />
-          Most relevant
-        </button>
-      </div>
+      <FilterToolbar />
 
       <nav
         aria-label="Course categories"
