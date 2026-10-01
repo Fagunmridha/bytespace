@@ -1,4 +1,3 @@
-// Faint white 90px grid used behind the blue sections.
 export function GridBackdrop() {
   return (
     <div

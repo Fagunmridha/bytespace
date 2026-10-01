@@ -8,7 +8,6 @@ import { AuthHeading } from "./auth-heading"
 
 export function RegisterForm() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
-    // No auth backend yet — keep credentials out of the URL until one is wired up.
     e.preventDefault()
   }
 

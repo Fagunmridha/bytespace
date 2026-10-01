@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-// No subscribe endpoint exists yet — this only confirms locally.
 export function NewsletterForm() {
   const [done, setDone] = useState(false)
 

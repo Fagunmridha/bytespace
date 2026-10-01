@@ -12,7 +12,6 @@ export type Course = {
   price: number
 }
 
-// Grouped into the three rows the design shows on desktop.
 export const categoryRows = [
   [
     "Featured",

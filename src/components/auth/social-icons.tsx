@@ -1,4 +1,3 @@
-// Monochrome brand marks (Simple Icons paths).
 export function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>

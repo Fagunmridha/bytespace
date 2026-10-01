@@ -9,8 +9,6 @@ export function CategoryChips({ rows }: { rows: string[][] }) {
   const last = rows.length - 1
 
   return (
-    // Rows are `contents` on small screens so chips reflow freely, and
-    // real centred lines from lg up to match the design's 8/6/4 split.
     <div
       role="tablist"
       aria-label="Course categories"

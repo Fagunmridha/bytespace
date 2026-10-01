@@ -4,7 +4,6 @@ import { testimonials } from "@/lib/landing-data"
 export function Testimonials() {
   return (
     <section className="relative isolate overflow-hidden bg-[#fafafa] py-20 md:py-28">
-      {/* soft colour glows */}
       <div aria-hidden className="absolute inset-0 -z-10 [&>span]:absolute [&>span]:rounded-full [&>span]:blur-[120px]">
         <span className="top-[-10%] left-[45%] size-[480px] bg-lime-300/50" />
         <span className="top-[20%] right-[-10%] size-[420px] bg-lime-200/60" />

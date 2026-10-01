@@ -22,7 +22,6 @@ function Spiral({ src, className }: { src: string; className?: string }) {
 export function Growth() {
   return (
     <section className="relative isolate overflow-hidden bg-[#fafafa] py-20 md:py-28">
-      {/* soft colour glows */}
       <div aria-hidden className="absolute inset-0 -z-10 [&>span]:absolute [&>span]:rounded-full [&>span]:blur-[120px]">
         <span className="top-[-8%] left-[22%] size-[460px] bg-lime-300/45" />
         <span className="top-[32%] left-[-12%] size-[420px] bg-brand-200/45" />
@@ -32,7 +31,6 @@ export function Growth() {
       </div>
 
       <div className="mx-auto max-w-site px-4 md:px-6 xl:px-0">
-        {/* Row 1 — growth */}
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
           <div className="max-w-[560px]">
             <h2 className={headingClass}>Your Path to Professional Growth Starts Here!</h2>
@@ -70,7 +68,6 @@ export function Growth() {
           </div>
         </div>
 
-        {/* Row 2 — creators */}
         <div className="mt-20 grid items-center gap-14 md:mt-28 lg:grid-cols-2 lg:gap-10">
           <div className="relative mx-auto h-[520px] w-full max-w-[560px] sm:h-[580px] lg:mx-0">
             <div className="absolute top-0 left-0 z-0 w-[225px] max-sm:z-20 rounded-xl bg-brand-800 p-4 text-white shadow-lg sm:left-[9px]">

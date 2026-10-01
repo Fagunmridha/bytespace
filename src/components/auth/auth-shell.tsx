@@ -12,7 +12,6 @@ type AuthShellProps = {
   children: ReactNode
 }
 
-// Shared blue backdrop + marketing collage for the sign-in and register pages.
 export function AuthShell({ title, description, children }: AuthShellProps) {
   const [digitalAsset, bigData] = [courses[1], courses[2]]
 
@@ -30,11 +29,9 @@ export function AuthShell({ title, description, children }: AuthShellProps) {
             <h1 className="text-xl font-semibold">{title}</h1>
             <p className="mt-3 max-w-[480px] text-base leading-7 font-light text-white/90">{description}</p>
 
-            {/* decorative collage */}
             <div inert className="relative mt-[70px] hidden h-[560px] w-[485px] lg:block">
               <CourseCard course={digitalAsset} className="absolute top-[89px] left-0 w-[372px]" />
               <CourseCard course={bigData} className="absolute top-0 left-[112px] w-[372px] shadow-xl" />
-              {/* only a white torus was exported — tint it lime; multiply keeps its shading */}
               <div className="absolute top-[10px] left-[24px] isolate w-[164px]">
                 <Image src="/shapes/torus-white.png" alt="" width={346} height={343} sizes="164px" />
                 <span

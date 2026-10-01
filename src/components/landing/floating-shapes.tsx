@@ -5,7 +5,6 @@ export type Shape = {
   width: number
   height: number
   className: string
-  /** Shapes exported pre-cropped at the frame edge stick to the section edge, so the cut never shows on wide screens. */
   edge?: boolean
 }
 
@@ -22,7 +21,6 @@ function ShapeImage({ shape }: { shape: Shape }) {
   )
 }
 
-// Decorative 3D shapes, positioned in 1440px design coordinates. Desktop only.
 export function FloatingShapes({ shapes }: { shapes: Shape[] }) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">

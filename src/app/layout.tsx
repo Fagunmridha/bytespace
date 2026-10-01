@@ -3,14 +3,12 @@ import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Headings
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-// Body text — Satoshi isn't on Google Fonts, so it's self-hosted from Fontshare's files.
 const satoshi = localFont({
   variable: "--font-satoshi",
   src: [

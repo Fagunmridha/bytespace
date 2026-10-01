@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils"
 import { FloatingShapes, type Shape } from "./floating-shapes"
 import { GridBackdrop } from "./grid-backdrop"
 
-// Content positions follow the 1440px Figma frame; offsets subtract each PNG's transparent padding.
 const shapes: Shape[] = [
   { src: "/shapes/spiral-lime-corner.png", width: 267, height: 225, className: "top-0 left-0", edge: true },
   { src: "/shapes/squiggle-white-cta.png", width: 177, height: 176, className: "top-[4px] left-[177px]" },

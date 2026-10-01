@@ -12,7 +12,6 @@ export function CourseCard({ course, className }: { course: Course; className?: 
         className
       )}
     >
-      {/* the exported image already includes the lessons / duration / comments pills */}
       <div className="relative aspect-[341/196] overflow-hidden rounded-xl bg-ink-100">
         <Image
           src={course.image}

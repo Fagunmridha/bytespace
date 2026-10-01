@@ -7,7 +7,6 @@ import { FloatingShapes, type Shape } from "./floating-shapes"
 import { GridBackdrop } from "./grid-backdrop"
 import { Navbar } from "./navbar"
 
-// Content positions follow the 1440px Figma frame; offsets subtract each PNG's transparent padding.
 const shapes: Shape[] = [
   { src: "/shapes/spiral-lime-left.png", width: 267, height: 387, className: "top-[136px] left-0", edge: true },
   { src: "/shapes/squiggle-white.png", width: 177, height: 176, className: "top-[361px] left-[185px]" },
@@ -26,7 +25,6 @@ export function Hero() {
 
       <Navbar />
 
-      {/* grows to fill the viewport; centres the copy in the spare height */}
       <div className="relative z-10 mx-auto flex w-full max-w-site flex-1 flex-col justify-center px-4 pt-8 text-center md:px-6 md:pt-4">
         <h1 className="mx-auto max-w-[920px] text-[40px] leading-[1.15] font-semibold tracking-tight md:text-6xl md:leading-[1.15]">
           Get Access to Hundreds Courses Available
@@ -60,13 +58,11 @@ export function Hero() {
         </form>
       </div>
 
-      {/* visual */}
       <div className="relative mx-auto mt-6 h-[420px] w-full max-w-site shrink-0 md:mt-4 md:h-[450px]">
         <div
           aria-hidden
           className="absolute top-[70px] left-1/2 aspect-square w-[640px] -translate-x-1/2 rounded-full bg-lime-500 md:top-[60px] md:w-[1020px]"
         />
-        {/* face sits at ~44% of the image width, so offset left to centre it */}
         <Image
           src="/hero/Image.png"
           alt="Smiling student with headphones holding a laptop"
@@ -77,7 +73,6 @@ export function Hero() {
           className="absolute bottom-0 left-[calc(50%-204px)] w-[460px] max-w-none md:left-[calc(50%-284px)] md:w-[640px]"
         />
 
-        {/* UI/UX Design */}
         <div className="absolute top-[90px] left-4 rounded-xl bg-white px-4 py-3 text-left text-ink-950 shadow-lg md:top-[100px] md:left-[calc(50%-300px)]">
           <p className="text-sm font-medium md:text-base">UI/UX Design</p>
           <p className="mt-0.5 flex items-center gap-2 text-[11px] text-ink-400 md:text-xs">
