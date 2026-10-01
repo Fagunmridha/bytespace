@@ -29,7 +29,7 @@ export function CourseSidebar({ course }: { course: CourseDetails }) {
       </ol>
       <p className="mt-3 text-sm text-ink-500">{course.moreVideos} more videos</p>
 
-      <p className="mt-6 max-w-[250px] text-[13px] leading-[26px] text-ink-700">{pitch}</p>
+      <p className="mt-6 max-w-[290px] text-[15px] leading-[26px] text-ink-700">{pitch}</p>
 
       <p className="mt-4 text-xs text-ink-500">
         <span className="text-[36px] font-bold text-brand-700">${course.price}</span>/lifetime
@@ -60,7 +60,7 @@ export function CourseSidebar({ course }: { course: CourseDetails }) {
             <p className="text-base text-ink-700">Professional Creator</p>
           </div>
         </div>
-        <p className="mt-6 max-w-[250px] text-[13px] leading-[26px] text-ink-700">{pitch}</p>
+        <p className="mt-6 max-w-[290px] text-[15px] leading-[26px] text-ink-700">{pitch}</p>
         <Link
           href="/creators"
           className="mt-4 inline-flex h-[34px] items-center rounded-full border border-ink-300 px-5 text-[15px] transition-colors hover:bg-ink-50"

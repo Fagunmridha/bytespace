@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { CourseHero } from "@/components/course/course-hero"
 import { CourseSidebar } from "@/components/course/course-sidebar"
-import { CourseTabs } from "@/components/course/course-tabs"
+import { CourseTabs, isTab } from "@/components/course/course-tabs"
 import { Footer } from "@/components/landing/footer"
 import { getCourseDetails } from "@/lib/course-details"
 import { courses } from "@/lib/landing-data"
@@ -16,8 +16,9 @@ export async function generateMetadata({ params }: PageProps<"/courses/[slug]">)
   return course ? { title: `${course.headline} — ByteSpace`, description: course.subtitle } : {}
 }
 
-export default async function CoursePage({ params }: PageProps<"/courses/[slug]">) {
+export default async function CoursePage({ params, searchParams }: PageProps<"/courses/[slug]">) {
   const course = getCourseDetails((await params).slug)
+  const { tab } = await searchParams
   if (!course) notFound()
 
   return (
@@ -30,7 +31,7 @@ export default async function CoursePage({ params }: PageProps<"/courses/[slug]"
             <CourseSidebar course={course} />
           </aside>
           <div className="xl:col-start-1 xl:row-start-1 xl:pt-16">
-            <CourseTabs course={course} />
+            <CourseTabs course={course} active={isTab(tab) ? tab : "about"} />
           </div>
         </div>
       </main>

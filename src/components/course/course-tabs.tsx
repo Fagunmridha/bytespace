@@ -1,43 +1,45 @@
-"use client"
-
-import { useState } from "react"
 import Image from "next/image"
-import { CircleCheck, Star } from "lucide-react"
+import Link from "next/link"
+import { CircleCheck } from "lucide-react"
+import { ProgressCard } from "@/components/landing/floating-cards"
 import type { CourseDetails } from "@/lib/course-details"
 import { cn } from "@/lib/utils"
+import { CourseReviews } from "./course-reviews"
 
-const tabs = ["About", "Lessons", "Reviews"] as const
-type Tab = (typeof tabs)[number]
+const tabs = [
+  { id: "about", label: "About" },
+  { id: "lesson", label: "Lesson" },
+  { id: "reviews", label: "Reviews" },
+] as const
 
-export function CourseTabs({ course }: { course: CourseDetails }) {
-  const [active, setActive] = useState<Tab>("About")
+export type Tab = (typeof tabs)[number]["id"]
 
+export const isTab = (v: unknown): v is Tab => tabs.some((t) => t.id === v)
+
+export function CourseTabs({ course, active }: { course: CourseDetails; active: Tab }) {
   return (
     <div>
-      <div role="tablist" aria-label="Course information" className="flex gap-4">
+      <nav aria-label="Course information" className="flex gap-4">
         {tabs.map((t) => (
-          <button
-            key={t}
-            id={`tab-${t}`}
-            type="button"
-            role="tab"
-            aria-selected={active === t}
-            aria-controls={`panel-${t}`}
-            onClick={() => setActive(t)}
+          <Link
+            key={t.id}
+            href={t.id === "about" ? `/courses/${course.slug}` : `/courses/${course.slug}?tab=${t.id}`}
+            scroll={false}
+            aria-current={active === t.id ? "page" : undefined}
             className={cn(
-              "h-10 rounded-full px-5 text-[15px] transition-colors",
-              active === t ? "bg-lime-500 text-ink-950" : "bg-ink-50 text-ink-700 hover:bg-ink-100"
+              "flex h-10 items-center rounded-full px-5 text-[15px] transition-colors",
+              active === t.id ? "bg-lime-500 text-ink-950" : "bg-ink-50 text-ink-700 hover:bg-ink-100"
             )}
           >
-            {t}
-          </button>
+            {t.label}
+          </Link>
         ))}
-      </div>
+      </nav>
 
-      <div role="tabpanel" id={`panel-${active}`} aria-labelledby={`tab-${active}`} className="mt-9">
-        {active === "About" && <About course={course} />}
-        {active === "Lessons" && <Lessons course={course} />}
-        {active === "Reviews" && <Reviews course={course} />}
+      <div className="mt-9">
+        {active === "about" && <About course={course} />}
+        {active === "lesson" && <Lessons course={course} />}
+        {active === "reviews" && <CourseReviews course={course} />}
       </div>
     </div>
   )
@@ -84,34 +86,41 @@ function About({ course }: { course: CourseDetails }) {
 function Lessons({ course }: { course: CourseDetails }) {
   return (
     <>
-      <h2 className="text-xl font-semibold text-ink-950">
-        {course.lessonCount} Lessons ({course.totalHours} hours)
-      </h2>
-      <ol className="mt-4 divide-y divide-ink-100 text-sm">
-        {course.curriculum.map((l, i) => (
-          <li key={l.title} className="flex items-center gap-4 py-4">
-            <span className="text-ink-500">{String(i + 1).padStart(2, "0")}</span>
-            <span className="flex-1 text-ink-950">{l.title}</span>
-            <span className="text-brand-700">{l.duration}</span>
+      <h2 className="text-xl font-semibold text-ink-950">Explore the Modules</h2>
+      <p className="mt-3 max-w-[690px] text-[15px] leading-7 text-ink-700">
+        Immerse yourself in the course content as we break down each module into comprehensive
+        lessons, providing practical insights and hands-on experiences.
+      </p>
+
+      <h2 className="mt-6 text-xl font-semibold text-ink-950">Lesson List</h2>
+      <ol className="mt-5 space-y-5">
+        {course.modules.map((m) => (
+          <li key={m.title} className="flex items-start gap-3">
+            <Image src="/icons/module-video.png" alt="" width={72} height={72} className="size-[72px] shrink-0" />
+            <div className="pt-1">
+              <h3 className="font-sans text-[15px] font-medium text-ink-950">{m.title}</h3>
+              <p className="max-w-[590px] text-[15px] leading-[26px] text-ink-700">{m.summary}</p>
+            </div>
           </li>
         ))}
       </ol>
-      <p className="mt-2 text-sm text-ink-500">
-        {course.moreVideos} more videos
-      </p>
-    </>
-  )
-}
 
-function Reviews({ course }: { course: CourseDetails }) {
-  return (
-    <>
-      <h2 className="text-xl font-semibold text-ink-950">Reviews</h2>
-      <p className="mt-4 flex items-center gap-2 text-sm text-ink-700">
-        <Star aria-hidden className="size-5 fill-brand-700 text-brand-700" />
-        <span className="text-2xl font-semibold text-ink-950">{course.rating}</span>
-        out of 5 · {course.reviews} reviews
+      <h2 className="mt-6 text-xl font-semibold text-ink-950">Lesson Content</h2>
+      <p className="mt-3 max-w-[690px] text-[15px] leading-7 text-ink-700">
+        Engage with each lesson through captivating video content, detailed textual explanations, and
+        interactive elements. Download resources, complete assignments, and test your understanding
+        with quizzes.
       </p>
+
+      <h2 className="mt-6 text-xl font-semibold text-ink-950">Lesson Progress Tracking</h2>
+      <p className="mt-3 max-w-[690px] text-[15px] leading-7 text-ink-700">
+        Witness your growth as you complete lessons, with an intuitive progress tracking feature
+        guiding you through your learning journey.
+      </p>
+      <ProgressCard
+        value={course.progress}
+        className="mt-5 w-full border border-ink-200 shadow-none md:w-full md:px-4 md:py-3"
+      />
     </>
   )
 }
